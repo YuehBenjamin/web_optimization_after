@@ -31,9 +31,26 @@ $(".client_owl-carousel").owlCarousel({
         1000: {
             items: 2
         }
-    }
+    },
+    onInitialized: setOwlNavAccessibility,
+    onResized: setOwlNavAccessibility,
+    onTranslated: setOwlNavAccessibility
 });
 
+function setOwlNavAccessibility() {
+    var prevBtn = document.querySelector('.owl-carousel .owl-nav .owl-prev');
+    var nextBtn = document.querySelector('.owl-carousel .owl-nav .owl-next');
+    if (prevBtn) {
+        prevBtn.setAttribute('aria-label', '上一則');
+        prevBtn.setAttribute('title', '上一則');
+        prevBtn.removeAttribute('role');
+    }
+    if (nextBtn) {
+        nextBtn.setAttribute('aria-label', '下一則');
+        nextBtn.setAttribute('title', '下一則');
+        nextBtn.removeAttribute('role');
+    }
+}
 
 
 /** google_map js **/

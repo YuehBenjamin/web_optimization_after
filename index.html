@@ -9,30 +9,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <!-- Site Metas -->
   <meta name="keywords" content="" />
-  <meta name="description" content="" />
+  <meta name="description" content="網頁優化。" />
   <meta name="author" content="" />
-  <meta name="description" content="網頁優化。">
-  <link rel="shortcut icon" href="images/favicon.webp" type="">
+  <link rel="shortcut icon" href="images/favicon.webp" type="image/webp">
 
   <title> Finexo </title>
+
+  <!-- preload 字型與關鍵 CSS -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"></noscript>
+  <link rel="preload" href="css/bootstrap.css" as="style">
+  <link rel="preload" href="css/style.css" as="style">
+  <link rel="preload" href="fonts/fontawesome-webfont.woff2?v=4.7.0" as="font" type="font/woff2" crossorigin>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
-  <!-- fonts style -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <!--owl slider stylesheet (延遲載入) -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"></noscript>
 
-  <!--owl slider stylesheet -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-
-  <!-- font awesome style -->
-  <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <!-- font awesome style (標準載入，避免 media=print 導致圖示不顯示) -->
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <noscript><link rel="stylesheet" href="css/font-awesome.min.css"></noscript>
 
   <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet" />
+  <!-- 避免 CLS：為 #customCarousel1 設定明確高度 -->
+
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
 
+  <!-- Google Fonts 預加載，減少 CLS -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap">
+  </noscript>
+
+  <!-- 已移除 leostop.com 非 HTTPS 追蹤碼，確保無不安全請求 -->
+
+  <!-- 建議：CSP 建議移至 HTTP header，並加強 script-src 防 XSS -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://maps.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://fonts.gstatic.com https://maps.googleapis.com; connect-src 'self' https://maps.googleapis.com https://maps.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <style>
+    /* 強化 span 與 body 的對比度 */
+    body {
+      background-color: #fff;
+      color: #181818; /* 提高對比度 */
+    }
+    span {
+      color: #181818; /* 提高對比度 */
+      background-color: transparent;
+    }
+    /* 若有特殊 span 需高對比，可自訂 class */
+    .high-contrast {
+      color: #000;
+      background-color: #ffd600;
+    }
+  </style>
+
+  <!-- 預加載首頁首屏主圖，優化 LCP -->
+  <link rel="preload" as="image" href="images/slider-img.webp" imagesrcset="images/slider-img.webp 500w" imagesizes="500px">
 </head>
 
 <body>
@@ -41,7 +77,7 @@
 
     <div class="hero_bg_box">
       <div class="bg_img_box">
-        <img src="images/hero-bg.webp" alt="">
+        <img src="images/hero-bg.webp" alt="Finexo 英雄區背景" width="1920" height="1080">
       </div>
     </div>
 
@@ -94,17 +130,17 @@
     <!-- end header section -->
     <!-- slider section -->
     <section class="slider_section">
-      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+      <div id="customCarousel1" class="carousel slide" data-ride="carousel" style="min-height:600px">
         <div class="carousel-inner">
           <div class="carousel-item active">
             <div class="container">
               <div class="row">
                 <div class="col-md-6">
                   <div class="detail-box">
-                    <h1>
+                    <h1 class="light-text">
                       Crypto <br> Currency
                     </h1>
-                    <p>
+                    <p class="light-text">
                       Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
                     </p>
                     <div class="btn-box">
@@ -114,7 +150,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="img-box">
-                    <img src="images/slider-img.webp" alt="Image showing cryptocurrency concept">
+                    <img src="images/slider-img.webp" alt="加密貨幣主題圖片" style="aspect-ratio:1135/973; width:100%; height:auto; max-width:500px;" width="500" height="429" fetchpriority="high">
                   </div>
                 </div>
               </div>
@@ -127,10 +163,10 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="detail-box">
-                    <h1>
+                    <h1 class="light-text">
                       Crypto <br> Currency
                     </h1>
-                    <p>
+                    <p class="light-text">
                       Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
                     </p>
                     <div class="btn-box">
@@ -140,7 +176,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="img-box">
-                    <img src="images/slider-img.webp" alt="Image showing cryptocurrency concept">
+                    <img src="images/slider-img.webp" alt="加密貨幣主題圖片" style="aspect-ratio:1135/973; width:100%; height:auto; max-width:500px;" loading="lazy">
                   </div>
                 </div>
               </div>
@@ -152,10 +188,10 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="detail-box">
-                    <h1>
+                    <h1 class="light-text">
                       Crypto <br> Currency
                     </h1>
-                    <p>
+                    <p class="light-text">
                       Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
                     </p>
                     <div class="btn-box">
@@ -165,7 +201,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="img-box">
-                    <img src="images/slider-img.webp" alt="Image showing cryptocurrency concept">
+                    <img src="images/slider-img.webp" alt="加密貨幣主題圖片" style="aspect-ratio:1135/973; width:100%; height:auto; max-width:500px;" loading="lazy">
                   </div>
                 </div>
               </div>
@@ -193,7 +229,7 @@
       <div class="container ">
         <div class="heading_container heading_center">
           <h2>
-            Our <span>Services</span>
+            Our <span class="high-contrast">Services</span>
           </h2>
           <p>
             There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
@@ -203,7 +239,8 @@
           <div class="col-md-4 ">
             <div class="box ">
               <div class="img-box">
-                <img src="images/s1.webp" alt="">
+                <img src="images/s1.webp" alt="Currency Wallet 服務圖示" loading="lazy" width="75" height="75"
+                  srcset="images/s1.webp 75w, images/s1.webp 150w" sizes="(max-width: 75px) 100vw, 75px">
               </div>
               <div class="detail-box">
                 <h3>
@@ -214,8 +251,8 @@
                   The
                   point of using
                 </p>
-                <a href="">
-                  Read More
+                <a href="service.html" aria-label="Read more about Currency Wallet service">
+                  Read More about Currency Wallet
                 </a>
               </div>
             </div>
@@ -223,7 +260,8 @@
           <div class="col-md-4 ">
             <div class="box ">
               <div class="img-box">
-                <img src="images/s2.webp" alt="">
+                <img src="images/s2.webp" alt="Security Storage 服務圖示" loading="lazy" width="75" height="75"
+                  srcset="images/s2.webp 75w, images/s2.webp 150w" sizes="(max-width: 75px) 100vw, 75px">
               </div>
               <div class="detail-box">
                 <h3>
@@ -234,8 +272,8 @@
                   The
                   point of using
                 </p>
-                <a href="">
-                  Read More
+                <a href="service.html" aria-label="Read more about Security Storage service">
+                  Read More about Security Storage
                 </a>
               </div>
             </div>
@@ -243,7 +281,8 @@
           <div class="col-md-4 ">
             <div class="box ">
               <div class="img-box">
-                <img src="images/s3.webp" alt="">
+                <img src="images/s3.webp" alt="Expert Support 服務圖示" loading="lazy" width="75" height="75"
+                  srcset="images/s3.webp 75w, images/s3.webp 150w" sizes="(max-width: 75px) 100vw, 75px">
               </div>
               <div class="detail-box">
                 <h3>
@@ -254,8 +293,8 @@
                   The
                   point of using
                 </p>
-                <a href="">
-                  Read More
+                <a href="service.html" aria-label="Read more about Expert Support service">
+                  Read More about Expert Support
                 </a>
               </div>
             </div>
@@ -279,7 +318,7 @@
     <div class="container  ">
       <div class="heading_container heading_center">
         <h2>
-          About <span>Us</span>
+          About <span class="high-contrast">Us</span>
         </h2>
         <p>
           Magni quod blanditiis non minus sed aut voluptatum illum quisquam aspernatur ullam vel beatae rerum ipsum voluptatibus
@@ -288,7 +327,8 @@
       <div class="row">
         <div class="col-md-6 ">
           <div class="img-box">
-            <img src="images/about-img2.webp" alt="">
+            <img src="images/about-img2.webp" alt="關於我們圖片" loading="lazy" width="400" height="400"
+              srcset="images/about-img2.webp 400w, images/about-img2.webp 800w" sizes="(max-width: 400px) 100vw, 400px">
           </div>
         </div>
         <div class="col-md-6">
@@ -322,18 +362,16 @@
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
-          Why Choose <span>Us</span>
+          Why Choose <span class="high-contrast">Us</span>
         </h2>
       </div>
       <div class="why_container">
         <div class="box">
           <div class="img-box">
-            <img src="images/w1.webp" alt="">
+            <img src="images/w1.webp" alt="Expert Management 圖示" loading="lazy" width="55" height="55">
           </div>
           <div class="detail-box">
-            <h5>
-              Expert Management
-            </h5>
+            <h3>Expert Management</h3>
             <p>
               Incidunt odit rerum tenetur alias architecto asperiores omnis cumque doloribus aperiam numquam! Eligendi corrupti, molestias laborum dolores quod nisi vitae voluptate ipsa? In tempore voluptate ducimus officia id, aspernatur nihil.
               Tempore laborum nesciunt ut veniam, nemo officia ullam repudiandae repellat veritatis unde reiciendis possimus animi autem natus
@@ -342,12 +380,10 @@
         </div>
         <div class="box">
           <div class="img-box">
-            <img src="images/w2.webp" alt="">
+            <img src="images/w2.webp" alt="Secure Investment 圖示" loading="lazy" width="55" height="55">
           </div>
           <div class="detail-box">
-            <h5>
-              Secure Investment
-            </h5>
+            <h3>Secure Investment</h3>
             <p>
               Incidunt odit rerum tenetur alias architecto asperiores omnis cumque doloribus aperiam numquam! Eligendi corrupti, molestias laborum dolores quod nisi vitae voluptate ipsa? In tempore voluptate ducimus officia id, aspernatur nihil.
               Tempore laborum nesciunt ut veniam, nemo officia ullam repudiandae repellat veritatis unde reiciendis possimus animi autem natus
@@ -356,12 +392,10 @@
         </div>
         <div class="box">
           <div class="img-box">
-            <img src="images/w3.webp" alt="">
+            <img src="images/w3.webp" alt="Instant Trading 圖示" loading="lazy" width="55" height="55">
           </div>
           <div class="detail-box">
-            <h5>
-              Instant Trading
-            </h5>
+            <h3>Instant Trading</h3>
             <p>
               Incidunt odit rerum tenetur alias architecto asperiores omnis cumque doloribus aperiam numquam! Eligendi corrupti, molestias laborum dolores quod nisi vitae voluptate ipsa? In tempore voluptate ducimus officia id, aspernatur nihil.
               Tempore laborum nesciunt ut veniam, nemo officia ullam repudiandae repellat veritatis unde reiciendis possimus animi autem natus
@@ -370,12 +404,10 @@
         </div>
         <div class="box">
           <div class="img-box">
-            <img src="images/w4.webp" alt="">
+            <img src="images/w4.webp" alt="Happy Customers 圖示" loading="lazy" width="55" height="55">
           </div>
           <div class="detail-box">
-            <h5>
-              Happy Customers
-            </h5>
+            <h3>Happy Customers</h3>
             <p>
               Incidunt odit rerum tenetur alias architecto asperiores omnis cumque doloribus aperiam numquam! Eligendi corrupti, molestias laborum dolores quod nisi vitae voluptate ipsa? In tempore voluptate ducimus officia id, aspernatur nihil.
               Tempore laborum nesciunt ut veniam, nemo officia ullam repudiandae repellat veritatis unde reiciendis possimus animi autem natus
@@ -407,15 +439,16 @@
           <div class="col-lg-3 col-sm-6">
             <div class="box ">
               <div class="img-box">
-                <img src="images/team-1.webp" class="img1" alt="">
+                <img src="images/team-1.webp" class="img1" alt="Joseph Brown 團隊照片" loading="lazy" width="120" height="120">
               </div>
               <div class="detail-box">
-                <h5>
+                <h3>
                   Joseph Brown
-                </h5>
+                </h3>
                 <p>
                   Marketing Head
                 </p>
+                <a href="#" class="team-link" aria-label="More about Joseph Brown">More Info</a>
               </div>
               <div class="social_box">
                 <a href="#" aria-label="Facebook">
@@ -439,15 +472,16 @@
           <div class="col-lg-3 col-sm-6">
             <div class="box ">
               <div class="img-box">
-                <img src="images/team-2.webp" class="img1" alt="">
+                <img src="images/team-2.webp" class="img1" alt="Nancy White 團隊照片" loading="lazy" width="120" height="120">
               </div>
               <div class="detail-box">
-                <h5>
+                <h3>
                   Nancy White
-                </h5>
+                </h3>
                 <p>
                   Marketing Head
                 </p>
+                <a href="#" class="team-link" aria-label="More about Nancy White">More Info</a>
               </div>
               <div class="social_box">
                 <a href="#" aria-label="Facebook">
@@ -471,15 +505,16 @@
           <div class="col-lg-3 col-sm-6">
             <div class="box ">
               <div class="img-box">
-                <img src="images/team-3.webp" class="img1" alt="">
+                <img src="images/team-3.webp" class="img1" alt="Earl Martinez 團隊照片" loading="lazy" width="120" height="120">
               </div>
               <div class="detail-box">
-                <h5>
+                <h3>
                   Earl Martinez
-                </h5>
+                </h3>
                 <p>
                   Marketing Head
                 </p>
+                <a href="#" class="team-link" aria-label="More about Earl Martinez">More Info</a>
               </div>
               <div class="social_box">
                 <a href="#" aria-label="Facebook">
@@ -503,15 +538,16 @@
           <div class="col-lg-3 col-sm-6">
             <div class="box ">
               <div class="img-box">
-                <img src="images/team-4.webp" class="img1" alt="">
+                <img src="images/team-4.webp" class="img1" alt="Josephine Allard 團隊照片" loading="lazy" width="120" height="120">
               </div>
               <div class="detail-box">
-                <h5>
+                <h3>
                   Josephine Allard
-                </h5>
+                </h3>
                 <p>
                   Marketing Head
                 </p>
+                <a href="#" class="team-link" aria-label="More about Josephine Allard">More Info</a>
               </div>
               <div class="social_box">
                 <a href="#" aria-label="Facebook">
@@ -545,7 +581,7 @@
     <div class="container">
       <div class="heading_container heading_center psudo_white_primary mb_45">
         <h2>
-          What says our <span>Customers</span>
+          What says our <span class="high-contrast">Customers</span>
         </h2>
       </div>
       <div class="carousel-wrap">
@@ -553,7 +589,7 @@
           <div class="item">
             <div class="box">
               <div class="img-box">
-                <img src="images/client1.webp" alt="LusDen client photo" class="box-img">
+                <img src="images/client1.webp" alt="LusDen 客戶照片" class="box-img" loading="lazy" width="100" height="100">
               </div>
               <div class="detail-box">
                 <div class="client_id">
@@ -572,7 +608,7 @@
           <div class="item">
             <div class="box">
               <div class="img-box">
-                <img src="images/client2.webp" alt="Zen Court client photo" class="box-img">
+                <img src="images/client2.webp" alt="Zen Court 客戶照片" class="box-img" loading="lazy" width="100" height="100">
               </div>
               <div class="detail-box">
                 <div class="client_id">
@@ -591,7 +627,7 @@
           <div class="item">
             <div class="box">
               <div class="img-box">
-                <img src="images/client1.webp" alt="LusDen client photo" class="box-img">
+                <img src="images/client1.webp" alt="LusDen 客戶照片" class="box-img" loading="lazy" width="100" height="100">
               </div>
               <div class="detail-box">
                 <div class="client_id">
@@ -610,7 +646,7 @@
           <div class="item">
             <div class="box">
               <div class="img-box">
-                <img src="images/client2.webp" alt="Zen Court client photo" class="box-img">
+                <img src="images/client2.webp" alt="Zen Court 客戶照片" class="box-img" loading="lazy" width="100" height="100">
               </div>
               <div class="detail-box">
                 <div class="client_id">
@@ -627,6 +663,21 @@
             </div>
           </div>
         </div>
+        <script>
+          // 增加可及性名稱給 Owl Carousel 的左右按鈕
+          document.addEventListener('DOMContentLoaded', function() {
+            var prevBtn = document.querySelector('.owl-carousel .owl-nav .owl-prev');
+            var nextBtn = document.querySelector('.owl-carousel .owl-nav .owl-next');
+            if (prevBtn) {
+              prevBtn.setAttribute('aria-label', '上一則');
+              prevBtn.setAttribute('title', '上一則');
+            }
+            if (nextBtn) {
+              nextBtn.setAttribute('aria-label', '下一則');
+              nextBtn.setAttribute('title', '下一則');
+            }
+          });
+        </script>
       </div>
     </div>
   </section>
@@ -746,21 +797,21 @@
   <!-- footer section -->
 
   <!-- jQery -->
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js" defer></script>
   <!-- popper js -->
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous" defer></script>
   <!-- bootstrap js -->
-  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js" defer></script>
   <!-- owl slider -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-  </script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" defer></script>
   <!-- custom js -->
-  <script type="text/javascript" src="js/custom.js"></script>
+  <script type="text/javascript" src="js/custom.js" defer></script>
   <!-- Google Map -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
-  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap" defer></script>
   <!-- End Google Map -->
+
+  <!-- Google Map 容器，避免初始化錯誤 -->
+  <div id="map" style="width:100%;height:400px"></div>
 
 </body>
 

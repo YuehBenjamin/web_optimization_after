@@ -1,7 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap");
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato'), url('https://fonts.gstatic.com/s/lato/v23/S6uyw4BMUTPHjxAwXiWtFCc.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), url('https://fonts.gstatic.com/s/opensans/v43/mem8YaGs126MiZpBA-UFVZ0e.woff2') format('woff2');
+  font-display: swap;
+}
 body {
-  font-family: "Open Sans", sans-serif;
-  color: #0c0c0c;
+  font-family: "Roboto", "Open Sans", Arial, "Microsoft JhengHei", "微軟正黑體", sans-serif;
+  color: #1a1a1a; /* 深灰色，提升對比 */
   background-color: #ffffff;
   overflow-x: hidden;
 }
@@ -51,6 +65,10 @@ body {
 
 .heading_container h2 span {
   color: #00bbf0;
+  font-weight: bold;
+  background: none;
+  padding: 0;
+  border-radius: 0;
 }
 
 .heading_container p {
@@ -268,6 +286,7 @@ a:focus {
 }
 
 .slider_section #customCarousel1 {
+  min-height: 600px;
   width: 100%;
   position: unset;
 }
@@ -275,17 +294,15 @@ a:focus {
 .slider_section .detail-box {
   color: #00204a;
 }
-
 .slider_section .detail-box h1 {
   font-size: 3rem;
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 15px;
-  color: #ffffff;
+  color: #00204a; /* 深藍色標題，提升對比 */
 }
-
 .slider_section .detail-box p {
-  color: #fefefe;
+  color: #333333; /* 深灰色，提升對比 */
   font-size: 14px;
 }
 
@@ -339,8 +356,15 @@ a:focus {
 
 .slider_section .img-box img {
   width: 100%;
-  -webkit-animation: upDown 5s infinite;
-          animation: upDown 5s infinite;
+  max-width: 500px;
+  height: auto;
+  display: block;
+}
+
+.bg_img_box img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
 }
 
 @-webkit-keyframes upDown {
@@ -384,17 +408,23 @@ a:focus {
           align-items: center;
 }
 
+.slider_section .carousel-indicators li,
+.slider_section .carousel-indicators li.active {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
 .slider_section .carousel-indicators li {
   background-color: #ffffff;
-  width: 12px;
-  height: 12px;
   border-radius: 100%;
   opacity: 1;
 }
 
 .slider_section .carousel-indicators li.active {
-  width: 20px;
-  height: 20px;
   background-color: #00bbf0;
 }
 
@@ -437,8 +467,9 @@ a:focus {
 }
 
 .service_section .box .img-box img {
-  max-width: 100%;
-  max-height: 100%;
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
@@ -446,10 +477,10 @@ a:focus {
 .service_section .box .detail-box h5 {
   font-weight: bold;
   text-transform: uppercase;
+  color: #00204a; /* 深藍色標題，提升對比 */
 }
-
 .service_section .box .detail-box a {
-  color: #00204a;
+  color: #005377; /* 深藜色連結，提升對比 */
   font-weight: 600;
 }
 
@@ -498,7 +529,9 @@ a:focus {
 }
 
 .about_section .img-box img {
-  max-width: 100%;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
 }
 
 .about_section .detail-box h3 {
@@ -561,8 +594,8 @@ a:focus {
 
 .why_section .box .img-box img {
   width: 55px;
-  height: auto;
-  fill: #00204a;
+  height: 55px;
+  object-fit: contain;
 }
 
 .why_section .box h5 {
@@ -641,6 +674,8 @@ a:focus {
 
 .team_section .team_container .box .img-box img {
   width: 120px;
+  height: 120px;
+  object-fit: cover;
   border-radius: 100%;
   border: 5px solid #ffffff;
 }
@@ -715,6 +750,9 @@ a:focus {
 }
 
 .client_section .box .img-box img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
   border-radius: 100%;
 }
 
@@ -741,6 +779,7 @@ a:focus {
 
 .client_section .box .detail-box {
   background-color: #ffffff;
+  color: #00204a; /* 深藍色文字，提升對比 */
   -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15);
           box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15);
   padding: 75px 25px 25px 25px;
@@ -763,20 +802,22 @@ a:focus {
 
 .client_section .owl-carousel .owl-nav .owl-prev,
 .client_section .owl-carousel .owl-nav .owl-next {
-  width: 55px;
-  height: 55px;
-  background-color: #ffffff;
-  color: #000000;
+  width: 60px;
+  height: 60px;
+  min-width: 48px;
+  min-height: 48px;
+  margin: 0 12px;
+  background-color: #00204a; /* 深藍色背景，提升對比 */
+  color: #ffffff; /* 白色文字，提升對比 */
   outline: none;
   bottom: 0px;
   font-size: 24px;
   -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
           box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
 }
-
-.client_section .owl-carousel .owl-nav .owl-prev:hover,
-.client_section .owl-carousel .owl-nav .owl-next:hover {
-  color: #00204a;
+.client_section .owl-carousel .owl-nav .owl-prev::after,
+.client_section .owl-carousel .owl-nav .owl-next::after {
+  color: #ffffff; /* 白色標籤，提升對比 */
 }
 
 /* client section end */
@@ -920,17 +961,105 @@ a:focus {
 /* footer section*/
 .footer_section {
   position: relative;
-  background-color: #ffffff;
+  background-color: #00204a; /* 深藍色背景，提升對比 */
   text-align: center;
 }
-
 .footer_section p {
-  color: #00204a;
+  color: #ffffff; /* 白色文字，提升對比 */
   padding: 25px 0;
   margin: 0;
 }
-
 .footer_section p a {
-  color: inherit;
+  color: #00bbf0;
 }
-/*# sourceMappingURL=style.css.map */
+
+a.btn1 {
+  background-color: #005377 !important; /* 更深藍，提升對比 */
+  color: #fff !important;
+  text-decoration: underline; /* 增加可辨識性 */
+  font-weight: bold;
+}
+a.btn1:hover {
+  background-color: #00395a !important;
+  color: #fff !important;
+}
+
+body {
+  color: #1a1a1a;
+  background-color: #fff;
+}
+
+a, a:visited {
+  color: #005377;
+  text-decoration: underline;
+  font-weight: 600;
+}
+a:hover, a:focus {
+  color: #007fa4;
+  text-decoration: underline;
+}
+
+button, .btn, .btn1, .btn-box a, .service_section .btn-box a, .about_section .detail-box a, .why_section .btn-box a {
+  color: #fff !important;
+  background-color: #005377 !important;
+  border: none;
+  font-weight: bold;
+  text-decoration: none !important;
+}
+button:hover, .btn:hover, .btn1:hover, .btn-box a:hover, .service_section .btn-box a:hover, .about_section .detail-box a:hover, .why_section .btn-box a:hover {
+  background-color: #00395a !important;
+  color: #fff !important;
+}
+
+span:not(.heading_container h2 span) {
+  color: inherit;
+  background: none;
+  font-weight: inherit;
+  padding: 0;
+  border-radius: 0;
+}
+
+a {
+  min-width: 48px;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  margin: 4px;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: 'Roboto', 'Open Sans', Arial, 'Microsoft JhengHei', '微軟正黑體', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.high-contrast {
+  color: #000000 !important; /* 黑色文字 */
+  background-color: #ffd600 !important; /* 鮮明黃色背景，對比度高 */
+  padding: 0 4px;
+  border-radius: 2px;
+}
+
+#customCarousel1.carousel.slide {
+  min-height: 600px;
+}
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+.light-text {
+  color: #f5f5f5 !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
